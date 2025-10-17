@@ -1,3 +1,12 @@
+terraform {
+  backend "s3" {
+    bucket         = "kaas-admin-state"
+    key            = "kaas-state/"
+    region         = "us-east-1"
+    encrypt        = true
+  }
+}
+
 module "vpc" {
   source      = "./modules/vpc"
   cidr_block  = var.vpc_cidr_block
